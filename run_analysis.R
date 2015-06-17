@@ -26,13 +26,13 @@ analysis <- function()
                         left_join(Activities, by = "V1") %>% 
                                 select(-V1, Activity=V2) 
         
-        tidy <- bind_cols(DataX, DataY, Subjects) %>%
+        tidyPt4 <- bind_cols(DataX, DataY, Subjects) 
+        
+        tidyPt5 <- tidyPt4 %>%
                 group_by(Activity, Subject) %>%
                         summarise_each(funs(mean))
         
-        write.table(tidy, "tidy.txt", row.name=FALSE)
+        write.table(tidyPt5, "tidy.txt", row.name=FALSE)
 }
-
-setwd("C:/Users/ruda/Documents/R/PA4/UCI HAR Dataset")
 
 analysis()
