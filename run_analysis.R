@@ -3,6 +3,7 @@ require("dplyr")
 
 analysis <- function()
 {       
+        features <- "features.txt"
         subjectsFiles <- c("train/subject_train.txt", "test/subject_test.txt")
         xFiles <- c("train/X_train.txt","test/X_test.txt")
         yFiles <- c("train/Y_train.txt", "test/Y_test.txt")
@@ -10,7 +11,7 @@ analysis <- function()
         
         isMSCol <- function(x) { x %like% "mean\\(\\)" | x %like% "std\\(\\)" }
         
-        ft <- read.table("features.txt", sep = " ") %>%
+        ft <- read.table(features, sep = " ") %>%
                 mutate(cc = ifelse(isMSCol(V2), "numeric", "NULL"),
                        fn = ifelse(isMSCol(V2), gsub("[()]","", V2), "NULL"))      
         
