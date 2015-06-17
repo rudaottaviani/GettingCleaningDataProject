@@ -5,7 +5,7 @@
 #### This script is used to produce the tidy data set for **the Coursera *Getting and Cleaning Data* Project**
 
 
-##### From the data set in [Samsung DataSet] 
+##### From the data set in [Samsung DataSet] (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip Samsung Data Set)
 
 ##### The script has to:
 1. Merges the training and the test sets to create one data set 
@@ -83,5 +83,3 @@ parameter **colClasses** of *read.table* and passing to it the **cc** column of 
 ```R
         write.table(tidy, "tidy.txt", row.name=FALSE)
 ```
-
-[Samsung DataSet]: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip Samsung Data Set
