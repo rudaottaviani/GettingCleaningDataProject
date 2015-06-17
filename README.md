@@ -5,7 +5,7 @@
 #### This script is used to produce the tidy data set for **the Coursera *Getting and Cleaning Data* Project**
 
 
-##### From the data set in [Samsung DataSet] (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip Samsung Data Set)
+##### From the data set in [Samsung DataSet] (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 ##### The script has to:
 1. Merges the training and the test sets to create one data set 
