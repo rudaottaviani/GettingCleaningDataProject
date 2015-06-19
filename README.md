@@ -37,9 +37,8 @@ String *mean()* or *std()*.
         isMSCol <- function(x) { x %like% "mean\\(\\)" | x %like% "std\\(\\)" }
 ```
 
-* The **ft** DataFrame is composed reading the **features** data set and using *isMSCol* function to create 2 columns **cc** and **fn** with the data type and the names of the subset of **X** raw dataset needed by the project.
-  * ***Note**: the cc and fn columns contains **NULL** in the columns that will not be imported. Using **NULL** as data type
-specification for a column in the colClasses parameter of read.table function exclude the column in the import process*
+* The **ft** DataFrame is composed reading the **features** data set and using *isMSCol* function, the script, create 2 columns **cc** and **fn** with the data type and the names of the subset of **X** raw dataset needed by the project.
+  * *Note: the cc and fn columns contains **NULL** in the columns that will not be imported. Using **NULL** as data type specification for a column in the colClasses parameter of read.table function exclude the column in the import process*
 
 ```R
         ft <- read.table(features, sep = " ") %>%
@@ -64,7 +63,7 @@ to decode the activities in the tidy Data Frame
 ```
 
 * X Data are collected merging with *bind_rows* the test and train Data Sets. Using the optional
-parameter **colClasses** of *read.table* and passing to it the **cc** column of the **ft** Data Frame, in a single operation and reducing the memory usage, we load only the required columns for the project: *mean* and *std* Data.
+parameter **colClasses** of *read.table* and passing to it the **cc** column of the **ft** Data Frame, in a single operation and reducing the memory usage, the script load only the required columns for the project: *mean* and *std* Data.
 The parameter col.names, using the **fn** column of **ft** Data Frame, is used to assign correct variable names to the 
 XData Data Frame.
 
