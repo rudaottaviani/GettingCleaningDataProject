@@ -22,48 +22,47 @@ From the original Data Set we have to:
 4. Appropriately labels the data set with descriptive variable names. 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-** *Note: All Feature in the tidy data set are grouped by Activity and Subject and were calculated the Average* **
+** *Note: The Features were grouped by Activity and Subject and the resulting groups were averaged.* **
 
 #### Tidy Data Set Features Description:
 
 1. **Activity**:
-The activity of the subject testing. Valid Values are: **WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, 
+The activity of the testing subjects. Valid Values are: **WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, 
 SITTING, STANDING, LAYING**
 
 2. **Subject**:
 An integer representing the subject from wich data are collected. Valid values are integer from 1:30
 
 3. **tBodyAcc.mean.X**:
-The Mean of the Body Accelerometer Signal
-for the component X in the Time Domain.Values are normalized and bounded within [-1,1]. 
+The Mean of the Body Accelerometer Signal for the component X in the Time Domain. Values are normalized and bounded within [-1,1]. 
 *Note: The acceleration signal was separated into body and gravity acceleration signals 
 using a low pass Butterworth filter with a corner frequency of 0.3 Hz.*
 
 
 4. **tBodyAcc.mean.Y**:
 The Mean of the Body Accelerometer Signal
-for the component Y in the Time Domain.Values are normalized and bounded within [-1,1]. 
+for the component Y in the Time Domain. Values are normalized and bounded within [-1,1]. 
 *Note: The acceleration signal was separated into body and gravity acceleration signals 
 using a low pass Butterworth filter with a corner frequency of 0.3 Hz.*
 
 
 5. **tBodyAcc.mean.Z**:
 The Mean of the Body Accelerometer Signal
- for the component Z in the Time Domain.Values are normalized and bounded within [-1,1]. 
+ for the component Z in the Time Domain. Values are normalized and bounded within [-1,1]. 
 *Note: The acceleration signal was separated into body and gravity acceleration signals 
 using a low pass Butterworth filter with a corner frequency of 0.3 Hz.*
 
 
 6. **tBodyAcc.std.X**:
 The Standard Deviation of the Body Accelerometer Signal
-for the component X in the Time Domain.Values are normalized and bounded within [-1,1]. 
+for the component X in the Time Domain. Values are normalized and bounded within [-1,1]. 
 *Note: The acceleration signal was separated into body and gravity acceleration signals 
 using a low pass Butterworth filter with a corner frequency of 0.3 Hz.*
 
 
 7. **tBodyAcc.std.Y**:
 The Standard Deviation of the Body Accelerometer Signal
-for the component Y in the Time Domain.Values are normalized and bounded within [-1,1]. 
+for the component Y in the Time Domain. Values are normalized and bounded within [-1,1]. 
 *Note: The acceleration signal was separated into body and gravity acceleration signals 
 using a low pass Butterworth filter with a corner frequency of 0.3 Hz.*
 

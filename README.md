@@ -16,7 +16,7 @@
 
 I assume that every measure is indipendent. The output of the script is a **wide** tidy
 
-The script require the packages **dplyr** and **data.table**.
+The script requires the packages **dplyr** and **data.table**.
 
 ##### These are the steps of the script:
 
@@ -30,15 +30,15 @@ The script require the packages **dplyr** and **data.table**.
         activityFile <- "activity_labels.txt"
 ```
 
-* define a function named **isMSCol** that return true if the parameter x contains the 
+* define a function named **isMSCol** that returns true if the parameter x contains the 
 String *mean()* or *std()*.
 
 ```R
         isMSCol <- function(x) { x %like% "mean\\(\\)" | x %like% "std\\(\\)" }
 ```
 
-* The **ft** DataFrame is composed reading the **features** data set and using *isMSCol* function, the script, create 2 columns **cc** and **fn** with the data type and the names of the subset of **X** raw dataset needed by the project.
-  * *Note: the cc and fn columns contains **NULL** in the columns that will not be imported. Using **NULL** as data type specification for a column in the colClasses parameter of read.table function exclude the column in the import process*
+* The **ft** DataFrame is composed by reading the **features** data set and by using the *isMSCol* function. The script creates the 2 columns **cc** and **fn** with the data type and the names of the subset of **X** raw dataset needed by the project.
+  * *Note: the cc and fn columns contains **NULL** in the columns that will not be imported. By Using **NULL** as data type specification for a column in the colClasses parameter of read.table function, it excludes the column in the import process*
 
 ```R
         ft <- read.table(features, sep = " ") %>%
@@ -54,8 +54,8 @@ new data frame **Subjects** with one column named **Subject**.
                 bind_rows() %>%
                 select(Subject=V1)
 ```
-* In the **Activity** DataFrame there  are 2 columns the first column is the cod value
-of the activity and the second column is the name of the activiy. this data set is used
+* In the **Activity** DataFrame there are 2 columns: the first one is the code value
+of the activity while the second one is the name of the activiy. This data set is used
 to decode the activities in the tidy Data Frame
 
 ```R
@@ -63,16 +63,15 @@ to decode the activities in the tidy Data Frame
 ```
 
 * X Data are collected merging with *bind_rows* the test and train Data Sets. Using the optional
-parameter **colClasses** of *read.table* and passing to it the **cc** column of the **ft** Data Frame, in a single operation and reducing the memory usage, the script load only the required columns for the project: *mean* and *std* Data.
-The parameter col.names, using the **fn** column of **ft** Data Frame, is used to assign correct variable names to the 
-XData Data Frame.
+parameter **colClasses** of *read.table* and passing the **cc** column of the **ft** Data Frame to it, in a single operation and reducing the memory usage, the script only loads the required columns for the project: *mean* and *std* Data.
+Using the **fn** column of **ft** Data Frame, the parameter col.names is used to assign correct variable names to the XData Data Frame.
 
 ```R
         DataX <- lapply(xFiles, read.table, colClasses = ft$cc, col.names = ft$fn ) %>%
                 bind_rows()
 ```
 
-* Y train and test data are merged together and, using a *left_join* operator, are joined with the Activity Data Frame to decode the activity labels. Finally the activity code is exluded from the resulted Data Frame
+* Y train and test data are merged together and, using a *left_join* operator, they are joined with the Activity Data Frame to decode the activity labels. Eventually the activity code is exluded from the resulted Data Frame
 
 ```R
         DataY <- lapply(yFiles, read.table) %>%
@@ -81,20 +80,20 @@ XData Data Frame.
                 select(-V1, Activity=V2) 
 ```
 
-* The **tidyPt4** (*tidy data set for the project point 4*) Data Frame is created using *bind_columns* with the **DataX**, **DataY** and **Subjects** Data Frame. **bind_columns** preserve row order
+* The **tidyPt4** (*tidy data set for the project point 4*) Data Frame is created using *bind_columns* with the **DataX**, **DataY** and **Subjects** Data Frame. **bind_columns** preserves row order
 
 ```R
         tidyPt4 <- bind_cols(DataX, DataY, Subjects)
 ```
 
-* the **tidyPt5** Data Frame is create from the tidyPt4, grouping by **Activity** and **Subject** using the *group_by* function. The result, using *summarise_each* and *mean* produce the project desired output.
+* the **tidyPt5** Data Frame is created from the tidyPt4, grouping by **Activity** and **Subject** using the *group_by* function. The result, using *summarise_each* and *mean*, produces the project desired output.
 
 ```R
         tidyPt5 <- group_by(tidyPt4, Activity, Subject) %>%
                 summarise_each(funs(mean))
 ```
 
-* Finally with *write.table* the script write the **tidy.txt** file
+* Finally with *write.table* the script writes the **tidy.txt** file
 
 ```R
         write.table(tidy, "tidy.txt", row.name=FALSE)
