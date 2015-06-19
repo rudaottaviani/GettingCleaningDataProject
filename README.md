@@ -1,5 +1,5 @@
 
-# run_analysis.R Scritp Description
+# run_analysis.R Script Description
 
 
 #### This script is used to produce the tidy data set for **the Coursera *Getting and Cleaning Data* Project**

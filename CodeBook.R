@@ -82,12 +82,12 @@ getAddDescr <- function(x)
         
         tmp <- ifelse(
                         grepl("Jerk", x),
-                        "\n*Note: The Jerk signal is obtained from the body linear acceleration \nand angular velocity derived in time*",
+                        "\n*Note: The Jerk signal is obtained from the body linear acceleration \nand angular velocity derived in time.*",
                         tmp)
         
         tmp <- ifelse(
                         grepl("Mag", x),
-                        "\n*Note: The magnitude of The three-dimensional signals (X,Y,Z) \nwere calculated using the Euclidean norm*",
+                        "\n*Note: The magnitude of The three-dimensional signals (X,Y,Z) \nwere calculated using the Euclidean norm.*",
                         tmp
                 )
         
