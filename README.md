@@ -71,7 +71,7 @@ Using the **fn** column of **ft** Data Frame, the parameter col.names is used to
                 bind_rows()
 ```
 
-* Y train and test data are merged together and, using a *left_join* operator, they are joined with the Activity Data Frame to decode the activity labels. Eventually the activity code is exluded from the resulted Data Frame
+* Y train and test data are merged together and, using a *left_join* operator, they are joined with the Activity Data Frame to decode the activity labels. The activity code is exluded from the resulted Data Frame
 
 ```R
         DataY <- lapply(yFiles, read.table) %>%
@@ -80,7 +80,7 @@ Using the **fn** column of **ft** Data Frame, the parameter col.names is used to
                 select(-V1, Activity=V2) 
 ```
 
-* The **tidyPt4** (*tidy data set for the project point 4*) Data Frame is created using *bind_columns* with the **DataX**, **DataY** and **Subjects** Data Frame. **bind_columns** preserves row order
+* The **tidyPt4** (*tidy data set for the project point 4*) Data Frame is created using *bind_cols* with the **DataX**, **DataY** and **Subjects** Data Frame. **bind_cols** preserves row order
 
 ```R
         tidyPt4 <- bind_cols(DataX, DataY, Subjects)
