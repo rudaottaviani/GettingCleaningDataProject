@@ -38,7 +38,7 @@ String *mean()* or *std()*.
 ```
 
 * The **ft** DataFrame is composed by reading the **features** data set and by using the *isMSCol* function. The script creates the 2 columns **cc** and **fn** with the data type and the names of the subset of **X** raw dataset needed by the project.
-  * *Note: the cc and fn columns contains **NULL** in the columns that will not be imported. By Using **NULL** as data type specification for a column in the colClasses parameter of read.table function, it excludes the column in the import process*
+  * *Note: the cc and fn columns contains NULL in the columns that will not be imported. By Using NULL as data type specification for a column in the colClasses parameter of read.table function, it excludes the column in the import process*
 
 ```R
         ft <- read.table(features, sep = " ") %>%
